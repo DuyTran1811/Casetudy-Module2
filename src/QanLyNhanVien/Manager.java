@@ -10,7 +10,7 @@ public class Manager {
     String empFileName = "EmployeeFile.DAT";
     List<Employee> empList = new ArrayList<>(readEmpFromFile(empFileName));
     public static void displayEmployees(List<Employee> employees) {
-        out.printf("%-15s%-20s%-15s%-20s%-20s%-15s%-15s%-15s%-15s%-15s\n",
+        out.printf("%-15s%-20s%-15s%-20s%-15s%-15s%-15s%-15s%-15s%-15s\n",
                 "Số CMT", "Name Employee", "Address", "Date Of birth", "Email",
                 "Phone Number", "Employee Code", "Duty", "Salary", "Experience");
         for (var emp : employees) {
@@ -36,9 +36,9 @@ public class Manager {
         return result;
     }
     public static Employee searchAnEmpById(List<Employee> employees, String id) {
-        for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i).getEmpId().compareToIgnoreCase(id) == 0) {
-                return employees.get(i);
+        for (Employee employee : employees) {
+            if (employee.getEmpId().compareToIgnoreCase(id) == 0) {
+                return employee;
             }
         }
         return null;
@@ -85,8 +85,7 @@ public class Manager {
         return false;
     }
     public static void calculSalary(List<Employee>employees){
-        for (int i = 0; i < employees.size(); i++) {
-            var emp = employees.get(i);
+        for (Employee emp : employees) {
             emp.calculateTotalSalary();
         }
     }

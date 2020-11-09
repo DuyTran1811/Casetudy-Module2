@@ -1,13 +1,12 @@
 package QanLyNhanVien;
 
 
-
 import java.util.Scanner;
 
 import static java.lang.System.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public void mains() {
         Manager manager = new Manager();
         InputInFormation inputInFormation = new InputInFormation();
         manager.updateEmployeeId(manager.empList);
@@ -27,6 +26,8 @@ public class Main {
             out.println("0: Exit");
             choice = Integer.parseInt(inputs.nextLine());
             switch (choice) {
+                case 0:
+                   System.exit(0);
                 case 1:
                     Employee employee = inputInFormation.inputList();
                     manager.empList.add(employee);
@@ -101,10 +102,10 @@ public class Main {
                         Employee checks = Manager.searchAnEmpById(manager.empList, id);
                         if (checks == null) {
                             out.println("Khong Ton Tai Nhan Vien Ma: \"" + id + "\"");
-                        }else {
+                        } else {
                             out.println("Nhap Ten Moi Moi");
                             var newId = inputs.nextLine();
-                                checks.setFullName(newId);
+                            checks.setFullName(newId);
                         }
                     }
                     break;
@@ -121,6 +122,6 @@ public class Main {
                     }
 
             }
-        } while (choice != 0);
+        } while (true);
     }
 }

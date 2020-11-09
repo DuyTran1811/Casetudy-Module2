@@ -5,7 +5,6 @@ import QanLyNhanVien.Exceptions.EmailException;
 import QanLyNhanVien.Exceptions.NumberException;
 import QanLyNhanVien.Exceptions.PhoneNumberException;
 
-import java.util.Date;
 
 
 public class Employee extends Person {
@@ -47,17 +46,17 @@ public class Employee extends Person {
     }
 
     public void calculateTotalSalary() {
-        totalSalary = workingDay * salary / 22 + bonus;
+        totalSalary = workingDay * salary / 30;
     }
 
-    public void calculateBonus() {
-        if (workingDay >= 20) {
-            var bonusesDay = workingDay - 20;
-            bonus = bonusesDay * 0.5f * salary / 22;
-        } else {
-            bonus = 0;
-        }
-    }
+//    public void calculateBonus() {
+//        if (workingDay >= 20) {
+//            var bonusesDay = workingDay - 20;
+//            bonus = bonusesDay * 0.5f * salary / 22;
+//        } else {
+//            bonus = 0;
+//        }
+//    }
 
     public static int getNextId() {
         return nextId;
